@@ -1,9 +1,9 @@
 package at.dokoe.quarkus.rest;
 
 import at.dokoe.quarkus.model.*;
-import jakarta.transaction.Transactional;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Path("/items")
 @Produces(MediaType.APPLICATION_JSON)
-public class ItemController {
+public class ItemDisplayController {
 
 
     @Path("/pants")
@@ -40,8 +40,11 @@ public class ItemController {
 
     }
 
-
-
+    @Path("{id}")
+    @GET
+    public Item getItemById(@PathParam("id") Integer id) {
+        return Item.findById(id);
+    }
 
 
 }
