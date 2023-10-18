@@ -7,6 +7,13 @@ import jakarta.persistence.Entity;
 @Entity
 @DiscriminatorValue("pullover")
 public class Pullover extends Item {
-    boolean withHood;
+    private boolean withHood;
 
+    public boolean isWithHood() {
+        return withHood;
+    }
+
+    public void setWithHood(boolean withHood) {
+        this.withHood = withHood;
+    }
 }

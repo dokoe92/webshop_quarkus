@@ -30,7 +30,7 @@ VALUES (11, 'T-Shirt Classic', 19.99, 'WHITE', true, 'NIKE', 'M', 'shirt'),
        (19, 'Round Neck Red', 19.99, 'RED', true, 'ADIDAS', 'L', 'shirt'),
        (20, 'Printed T-Shirt', 21.99, 'BLACK', false, 'LACOSTE', 'M', 'shirt');
 
-INSERT INTO Item (id, name, value, colour, onStock, brand, size, category, withHood)
+INSERT INTO Item (id, name, value, colour, onStock, brand, size, category, withhood)
 VALUES (21, 'Classic Hoodie', 49.99, 'BLACK', true, 'NIKE', 'M', 'pullover', true),
        (22, 'Knit Sweater', 59.99, 'BLUE', true, 'ADIDAS', 'L', 'pullover', false),
        (23, 'Winter Pullover', 64.99, 'GREY', false, 'LACOSTE', 'S', 'pullover', false),
@@ -42,14 +42,14 @@ VALUES (21, 'Classic Hoodie', 49.99, 'BLACK', true, 'NIKE', 'M', 'pullover', tru
        (29, 'Wool Blend Sweater', 74.99, 'BLUE', true, 'ADIDAS', 'L', 'pullover', false),
        (30, 'Cable Knit Pullover', 59.99, 'GREY', false, 'LACOSTE', 'M', 'pullover', false);
 
-INSERT INTO Item (id, name, value, colour, onStock, brand, size, category, size)
-VALUES (31, 'Sport Runners', 79.99, 'BLACK', true, 'NIKE', '42', 'shoe', 42),
-       (32, 'Classic Sneakers', 69.99, 'WHITE', true, 'ADIDAS', '43', 'shoe', 43),
-       (33, 'Casual Loafers', 89.99, 'BROWN', false, 'LACOSTE', '41', 'shoe', 41),
-       (34, 'High Top Sneakers', 99.99, 'BLUE', true, 'TOMMY_HILFIGER', '44', 'shoe', 44),
-       (35, 'Gym Trainers', 74.99, 'BLACK', true, 'PUMA', '45', 'shoe', 45),
-       (36, 'Leather Boots', 129.99, 'BLACK', false, 'TRUSSARDI', '42', 'shoe', 42),
-       (37, 'Slip Ons', 59.99, 'GREY', true, 'BASIC', '43', 'shoe', 43),
-       (38, 'Street Style Shoes', 84.99, 'RED', false, 'NIKE', '44', 'shoe', 44),
-       (39, 'Hiking Boots', 139.99, 'GREEN', true, 'ADIDAS', '45', 'shoe', 45),
-       (40, 'Formal Oxfords', 114.99, 'BLACK', false, 'LACOSTE', '42', 'shoe', 42);
+INSERT INTO Item (id, name, value, colour, onStock, brand, size, category, shoe_size)
+VALUES (31,'Sport Runners', 79.99, 'BLACK', true, 'NIKE', null, 'shoe', 42),
+       (32, 'Classic Sneakers', 69.99, 'WHITE', true, 'ADIDAS', null, 'shoe', 43),
+       (33, 'Casual Loafers', 89.99, 'BROWN', false, 'LACOSTE', null, 'shoe', 41),
+       (34,'High Top Sneakers', 99.99, 'BLUE', true, 'TOMMY_HILFIGER', null, 'shoe', 44),
+       (35, 'Gym Trainers', 74.99, 'BLACK', true, 'PUMA', 'M', 'shoe', null),
+       (36, 'Leather Boots', 129.99, 'BLACK', false, 'TRUSSARDI', 'L', 'shoe', null),
+       (37, 'Slip Ons', 59.99, 'GREY', true, 'BASIC', null, 'shoe', 43),
+       (38, 'Street Style Shoes', 84.99, 'RED', false, 'NIKE', null, 'shoe', 44),
+       (39, 'Hiking Boots', 139.99, 'GREEN', true, 'ADIDAS', null, 'shoe', 45),
+       (40, 'Formal Oxfords', 114.99, 'BLACK', false, 'LACOSTE', null, 'shoe', 42);

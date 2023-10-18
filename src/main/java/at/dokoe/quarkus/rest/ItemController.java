@@ -13,13 +13,6 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class ItemController {
 
-    @GET
-    public Item getItem() {
-        Item item = new Item();
-        item.name = "item1";
-        item.persist();
-        return item;
-    }
 
     @Path("/pants")
     @GET
@@ -43,7 +36,7 @@ public class ItemController {
     @Path("/shoe")
     @GET
     public List<Shoe> getAllShoes() {
-        return null;
+        return Shoe.listAll();
 
     }
 

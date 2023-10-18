@@ -7,5 +7,6 @@ public enum ItemColour {
     YELLOW,
     WHITE,
     BLACK,
-    GREY
+    GREY,
+    BROWN
 }

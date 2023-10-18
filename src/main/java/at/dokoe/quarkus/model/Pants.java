@@ -9,8 +9,34 @@ import jakarta.persistence.Enumerated;
 @DiscriminatorValue("pants")
 public class Pants extends Item {
 
-    public Integer width;
-    public Integer length;
+    private Integer width;
+    private Integer length;
+
+
     @Enumerated(EnumType.STRING)
-    public PantsStyle pantsStyle;
+    private PantsStyle pantsStyle;
+
+    public Integer getWidth() {
+        return width;
+    }
+
+    public void setWidth(Integer width) {
+        this.width = width;
+    }
+
+    public Integer getLength() {
+        return length;
+    }
+
+    public void setLength(Integer length) {
+        this.length = length;
+    }
+
+    public PantsStyle getPantsStyle() {
+        return pantsStyle;
+    }
+
+    public void setPantsStyle(PantsStyle pantsStyle) {
+        this.pantsStyle = pantsStyle;
+    }
 }
