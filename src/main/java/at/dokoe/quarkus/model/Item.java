@@ -25,6 +25,12 @@ public class Item extends PanacheEntity {
     @Enumerated(EnumType.STRING)
     private Size size;
 
+
+    @ManyToOne
+    @JoinColumn(name="shoppingCart_id")
+    private ShoppingCart shoppingCart;
+
+
     public void setName(String name) {
         this.name = name;
     }
@@ -69,7 +75,9 @@ public class Item extends PanacheEntity {
         this.size = size;
     }
 
+
     public String getName() {
         return name;
     }
+
 }

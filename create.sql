@@ -1,7 +1,19 @@
 
+    create sequence app_user_SEQ start with 1 increment by 50;
+
     create sequence Item_SEQ start with 1 increment by 50;
 
     create sequence MyEntity_SEQ start with 1 increment by 50;
+
+    create sequence ShoppingCart_SEQ start with 1 increment by 50;
+
+    create table app_user (
+        id bigint not null,
+        shoppingCart_id bigint unique,
+        password varchar(255),
+        username varchar(255),
+        primary key (id)
+    );
 
     create table Item (
         length integer,
@@ -11,6 +23,7 @@
         width integer,
         withHood boolean,
         id bigint not null,
+        shoppingCart_id bigint,
         category varchar(31) not null,
         brand varchar(255) check (brand in ('NIKE','ADIDAS','LACOSTE','TOMMY_HILFIGER','BASIC','TRUSSARDI','PUMA')),
         colour varchar(255) check (colour in ('RED','BLUE','GREEN','YELLOW','WHITE','BLACK','GREY','BROWN')),
@@ -25,6 +38,21 @@
         field varchar(255),
         primary key (id)
     );
+
+    create table ShoppingCart (
+        id bigint not null,
+        primary key (id)
+    );
+
+    alter table if exists app_user 
+       add constraint FK9vluc0o0i5ajm92e2ynvx2afw 
+       foreign key (shoppingCart_id) 
+       references ShoppingCart;
+
+    alter table if exists Item 
+       add constraint FKojb25qw2wfd40b4oc9e6xleef 
+       foreign key (shoppingCart_id) 
+       references ShoppingCart;
 INSERT INTO item (id, name, value, colour, onStock, brand, category, width, length, size, pantsstyle) VALUES (1, 'Pants1', 29.99, 'RED', true, 'NIKE', 'pants', 32, 32, null, 'REGULARFIT'),        (2, 'Pants3', 49.99, 'GREEN', true, 'LACOSTE', 'pants', 32, 34, null, 'SKINNYFIT'),        (3, 'Pants2', 39.99, 'BLUE', false, 'ADIDAS', 'pants', 34, 34, null, 'SLIMFIT'),        (4, 'Pants4', 35.99, 'YELLOW', true, 'PUMA', 'pants', 34, 32, null, 'REGULARFIT'),        (5, 'Pants5', 45.99, 'GREY', false, 'TRUSSARDI', 'pants', null, null, 'M', 'SKINNYFIT'),        (6, 'Pants6', 59.99, 'BLACK', true, 'TOMMY_HILFIGER', 'pants', null, null, 'L', 'SLIMFIT'),        (7, 'Pants7', 34.99, 'WHITE', false, 'BASIC', 'pants', 36, 32, null, 'REGULARFIT'),        (8, 'Pants8', 44.99, 'RED', true, 'NIKE', 'pants', 36, 34, null, 'SKINNYFIT'),        (9, 'Pants9', 39.99, 'BLACK', false, 'ADIDAS', 'pants', null, null, 'S', 'SLIMFIT'),        (10, 'Pants10', 29.99, 'GREY', true, 'LACOSTE', 'pants', 32, 30, null, 'REGULARFIT');
 INSERT INTO Item (id, name, value, colour, onStock, brand, size, category) VALUES (11, 'T-Shirt Classic', 19.99, 'WHITE', true, 'NIKE', 'M', 'shirt'),        (12, 'Polo Blue', 29.99, 'BLUE', true, 'ADIDAS', 'L', 'shirt'),        (13, 'Striped Tee', 24.99, 'RED', false, 'LACOSTE', 'S', 'shirt'),        (14, 'Cotton White Shirt', 34.99, 'WHITE', true, 'TOMMY_HILFIGER', 'XL', 'shirt'),        (15, 'Black Tee', 14.99, 'BLACK', true, 'BASIC', 'M', 'shirt'),        (16, 'Graphic T-Shirt', 29.99, 'GREY', false, 'TRUSSARDI', 'L', 'shirt'),        (17, 'V-Neck Green', 22.99, 'GREEN', true, 'PUMA', 'S', 'shirt'),        (18, 'Long Sleeve Tee', 24.99, 'YELLOW', false, 'NIKE', 'M', 'shirt'),        (19, 'Round Neck Red', 19.99, 'RED', true, 'ADIDAS', 'L', 'shirt'),        (20, 'Printed T-Shirt', 21.99, 'BLACK', false, 'LACOSTE', 'M', 'shirt');
 INSERT INTO Item (id, name, value, colour, onStock, brand, size, category, withhood) VALUES (21, 'Classic Hoodie', 49.99, 'BLACK', true, 'NIKE', 'M', 'pullover', true),        (22, 'Knit Sweater', 59.99, 'BLUE', true, 'ADIDAS', 'L', 'pullover', false),        (23, 'Winter Pullover', 64.99, 'GREY', false, 'LACOSTE', 'S', 'pullover', false),        (24, 'Zip-Up Hoodie', 54.99, 'WHITE', true, 'TOMMY_HILFIGER', 'XL', 'pullover', true),        (25, 'Basic Sweatshirt', 39.99, 'GREEN', true, 'BASIC', 'M', 'pullover', false),        (26, 'Turtleneck Sweater', 69.99, 'RED', false, 'TRUSSARDI', 'L', 'pullover', false),        (27, 'Crewneck Pullover', 44.99, 'YELLOW', true, 'PUMA', 'S', 'pullover', false),        (28, 'Sports Hoodie', 49.99, 'BLACK', false, 'NIKE', 'M', 'pullover', true),        (29, 'Wool Blend Sweater', 74.99, 'BLUE', true, 'ADIDAS', 'L', 'pullover', false),        (30, 'Cable Knit Pullover', 59.99, 'GREY', false, 'LACOSTE', 'M', 'pullover', false);
