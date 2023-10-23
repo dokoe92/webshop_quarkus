@@ -1,7 +1,7 @@
 package at.dokoe.quarkus.rest;
 
 import at.dokoe.quarkus.Exceptions.RestError;
-import at.dokoe.quarkus.dto.UserDTO;
+import at.dokoe.quarkus.dto.UserDto;
 import at.dokoe.quarkus.model.User;
 import at.dokoe.quarkus.service.UserService;
 import jakarta.inject.Inject;
@@ -21,8 +21,8 @@ public class UserController {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("/new)")
-    public Response createNewUser(UserDTO user) {
+    @Path("/new")
+    public Response createNewUser(UserDto user) {
         User newUser = userService.createNewUser(user.username, user.password);
         if (newUser != null) {
             return Response.status(Response.Status.CREATED).entity(newUser).build();

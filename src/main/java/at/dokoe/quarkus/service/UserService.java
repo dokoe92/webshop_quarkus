@@ -10,8 +10,9 @@ public class UserService {
     @Transactional
     public User createNewUser(String username, String password) {
         User user = new User(username, password);
-        if (User.find("username", username).firstResult() != null) {
+        if (User.find("username", username).firstResult() == null) {
             user.persist();
+            user.getShoppingCart().persist();
             return user;
         } else {
             return null;
