@@ -19,6 +19,7 @@ public class ShoppingCartService {
         if (user != null && item != null) {
             user.getShoppingCart().getItems().add(item);
             user.persist();
+            user.getShoppingCart().persist();;
             return user.getShoppingCart();
         }
         return null;

@@ -2,8 +2,10 @@ package at.dokoe.quarkus.model;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import org.hibernate.annotations.Fetch;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +13,7 @@ import java.util.List;
 @Entity
 public class ShoppingCart extends PanacheEntity {
 
-    @OneToMany(mappedBy = "shoppingCart")
+    @OneToMany(mappedBy = "shoppingCart", fetch = FetchType.EAGER)
     private List<Item> items = new ArrayList<>();
 
     public List<Item> getItems() {
