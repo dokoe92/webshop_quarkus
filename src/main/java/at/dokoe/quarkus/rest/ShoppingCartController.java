@@ -2,6 +2,7 @@ package at.dokoe.quarkus.rest;
 
 import at.dokoe.quarkus.Exceptions.RestError;
 import at.dokoe.quarkus.dto.AddItemDto;
+import at.dokoe.quarkus.dto.ShoppingCartDto;
 import at.dokoe.quarkus.model.ShoppingCart;
 import at.dokoe.quarkus.service.ShoppingCartService;
 import jakarta.inject.Inject;
@@ -21,7 +22,7 @@ public class ShoppingCartController {
 
     @Path("/add")
     public Response addToShoppingCart(AddItemDto idDto) {
-        ShoppingCart updatedShoppingcart =  shoppingCartService.addToShoppingCart(idDto.itemId, idDto.userId);
+        ShoppingCartDto updatedShoppingcart =  shoppingCartService.addToShoppingCart(idDto.itemId, idDto.userId);
         if (updatedShoppingcart != null) {
             return Response.status(Response.Status.OK).entity(updatedShoppingcart.getItems()).build();
         }

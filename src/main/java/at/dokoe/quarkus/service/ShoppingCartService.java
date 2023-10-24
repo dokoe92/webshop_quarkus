@@ -1,5 +1,7 @@
 package at.dokoe.quarkus.service;
 
+import at.dokoe.quarkus.dto.ShoppingCartDto;
+import at.dokoe.quarkus.mapper.ShoppingCartMapper;
 import at.dokoe.quarkus.model.Item;
 import at.dokoe.quarkus.model.ShoppingCart;
 import at.dokoe.quarkus.model.User;
@@ -13,17 +15,19 @@ import java.util.List;
 public class ShoppingCartService {
 
     @Transactional
-    public ShoppingCart addToShoppingCart(Integer itemId, Integer userId) {
+    public ShoppingCartDto addToShoppingCart(Integer itemId, Integer userId) {
         User user = User.findById(userId);
         Item item = Item.findById(itemId);
         if (user != null && item != null) {
             user.getShoppingCart().getItems().add(item);
-            user.persist();
-            user.getShoppingCart().persist();;
-            return user.getShoppingCart();
+            item.setShoppingCart(user.getShoppingCart());
+            user.getShoppingCart().persist();
+            return ShoppingCartMapper.toDTO(user.getShoppingCart());
         }
         return null;
     }
+
+
 
 
 }
