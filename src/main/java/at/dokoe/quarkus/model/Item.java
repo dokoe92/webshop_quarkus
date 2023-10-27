@@ -2,6 +2,7 @@ package at.dokoe.quarkus.model;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.*;
 
 @Entity
@@ -28,6 +29,7 @@ public class Item extends PanacheEntity {
 
     @ManyToOne
     @JoinColumn(name="shoppingCart_id")
+    @JsonbTransient
     private ShoppingCart shoppingCart;
 
 

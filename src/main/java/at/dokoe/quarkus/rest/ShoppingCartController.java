@@ -30,5 +30,12 @@ public class ShoppingCartController {
 
     }
 
+    @Path("/clear-cart/{userId}")
+    @DELETE
+    public Response clearShoppingCart(@PathParam("userId") Integer userId) {
+        ShoppingCartDto shopppingCartDto = shoppingCartService.clearShoppingCart(userId);
+        return Response.status(Response.Status.OK).entity(shopppingCartDto).build();
+    }
+
 
 }

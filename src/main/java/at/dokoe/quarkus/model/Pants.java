@@ -1,5 +1,6 @@
 package at.dokoe.quarkus.model;
 
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -14,6 +15,7 @@ public class Pants extends Item {
 
 
     @Enumerated(EnumType.STRING)
+    @JsonbTransient
     private PantsStyle pantsStyle;
 
     public Integer getWidth() {

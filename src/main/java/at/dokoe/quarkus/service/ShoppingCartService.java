@@ -27,6 +27,17 @@ public class ShoppingCartService {
         return null;
     }
 
+    @Transactional
+    public ShoppingCartDto clearShoppingCart(Integer userId){
+        User user = User.findById(userId);
+        if (user != null) {
+            user.getShoppingCart().getItems().forEach(item -> item.setShoppingCart(null));
+            user.getShoppingCart().getItems().clear();
+        }
+
+        return ShoppingCartMapper.toDTO(user.getShoppingCart());
+    }
+
 
 
 

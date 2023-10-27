@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 public class ShoppingCart extends PanacheEntity {
 
-    @OneToMany(mappedBy = "shoppingCart", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "shoppingCart", fetch = FetchType.EAGER)
     private List<Item> items = new ArrayList<>();
 
     public List<Item> getItems() {

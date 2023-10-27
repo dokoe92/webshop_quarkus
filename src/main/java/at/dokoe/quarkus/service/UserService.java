@@ -1,5 +1,7 @@
 package at.dokoe.quarkus.service;
 
+import at.dokoe.quarkus.dto.UserDetailsDto;
+import at.dokoe.quarkus.mapper.UserDetailsMapper;
 import at.dokoe.quarkus.model.User;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
@@ -17,5 +19,10 @@ public class UserService {
         } else {
             return null;
         }
+    }
+
+    public UserDetailsDto getUser(Long userId) {
+        User user = User.findById(userId);
+        return UserDetailsMapper.toDto(user);
     }
 }
