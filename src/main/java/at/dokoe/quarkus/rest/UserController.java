@@ -21,7 +21,7 @@ public class UserController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/new")
     public Response createNewUser(UserCreationDto user) {
-        User newUser = userService.createNewUser(user.username, user.password);
+        UserDetailsDto newUser = userService.createNewUser(user.username, user.password);
         if (newUser != null) {
             return Response.status(Response.Status.CREATED).entity(newUser).build();
         } else {
@@ -36,4 +36,6 @@ public class UserController {
         UserDetailsDto userDetailsDto = userService.getUser(userId);
         return Response.status(Response.Status.OK).entity(userDetailsDto).build();
     }
+
+
 }

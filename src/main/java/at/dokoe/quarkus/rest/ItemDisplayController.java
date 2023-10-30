@@ -8,6 +8,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+import java.util.Collections;
 import java.util.List;
 
 @Path("/items")
@@ -20,26 +21,34 @@ public class ItemDisplayController {
     @Path("/pants")
     @GET
     public List<Pants> getAllPants() {
-        return Pants.listAll();
+        List<Pants> pantsList = Pants.listAll();
+        Collections.sort(pantsList);
+        return pantsList;
     }
 
     @Path("/pullovers")
     @GET
     public List<Pullover> getAllPullovers() {
-        return Pullover.listAll();
+        List<Pullover> pulloverList = Pullover.listAll();
+        Collections.sort(pulloverList);
+        return pulloverList;
     }
 
     @Path("/shirts")
     @GET
     public List<Shirt> getAllShirts() {
-        return Shirt.listAll();
+        List<Shirt> shirtList = Shirt.listAll();
+        Collections.sort(shirtList);
+        return shirtList;
 
     }
 
     @Path("/shoes")
     @GET
     public List<Shoe> getAllShoes() {
-        return Shoe.listAll();
+        List<Shoe> shoeList = Shirt.listAll();
+        Collections.sort(shoeList);
+        return shoeList;
 
     }
 

@@ -5,11 +5,14 @@ import jakarta.json.bind.annotation.JsonbProperty;
 import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.*;
 
+import java.util.Comparator;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "category",
     discriminatorType = DiscriminatorType.STRING)
-public class Item extends PanacheEntity {
+public class Item extends PanacheEntity  implements Comparable<Item>
+{
 
     private String name;
 
@@ -17,6 +20,7 @@ public class Item extends PanacheEntity {
 
     @Enumerated(EnumType.STRING)
     private ItemColour colour;
+
 
     private Boolean onStock;
 
@@ -88,5 +92,15 @@ public class Item extends PanacheEntity {
 
     public void setShoppingCart(ShoppingCart shoppingCart) {
         this.shoppingCart = shoppingCart;
+    }
+
+
+    @Override
+    public int compareTo(Item o)
+    {
+        return this.name.compareTo(o.getName());
+
+
+
     }
 }
